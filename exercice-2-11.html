@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 2.11 - Go nuts with your LLM // NetSci Lab</title>
+  <meta name="description" content="Exercice 2.11 - Go nuts with your LLM : Paradoxe de l'amitié et Modèles Nuls dans le réseau Marvel Comics - Par Romeo Sofia">
+  
+  <!-- Polices Google Fonts (Plus Jakarta Sans & JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barre de progression de lecture -->
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand" aria-label="Accueil NetSci Lab">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="6" r="3"></circle>
+            <circle cx="18" cy="6" r="3"></circle>
+            <circle cx="18" cy="18" r="3"></circle>
+            <circle cx="6" cy="18" r="3"></circle>
+            <line x1="8.5" y1="7.5" x2="15.5" y2="16.5"></line>
+            <line x1="8.5" y1="16.5" x2="15.5" y2="7.5"></line>
+          </svg>
+        </div>
+        <div class="brand-meta">
+          <div class="brand-title">
+            <span>NetSci</span> Lab
+          </div>
+          <span class="univ-badge">Science des Réseaux</span>
+        </div>
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="index.html" class="btn-nav">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Retour aux articles
+          </a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ZONE PRINCIPALE : ARTICLE -->
+  <main class="main-layout" id="article" style="margin-top: 2.5rem;">
+    <article class="article-container">
+      
+      <!-- En-tête de l'article -->
+      <header class="article-header">
+        <div class="article-category" style="background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.3); color: #38bdf8;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+          </svg>
+          Exercice 2.11 &bull; DTU 02805 Social Graphs
+        </div>
+
+        <h1 class="article-title">
+          Exercice 2.11 - Go nuts with your LLM : Le Paradoxe de l'Amitié et les Modèles Nuls dans le Multivers Marvel
+        </h1>
+
+        <div class="article-meta">
+          <div class="meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>12 Septembre 2026</span>
+          </div>
+          <div class="meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>7 min de lecture</span>
+          </div>
+          <div class="meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span>Par Romeo Sofia</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Corps rédigé de l'article -->
+      <div class="article-body">
+        
+        <p class="article-lead">
+          Vous êtes-vous déjà senti moins populaire que vos amis sur les réseaux sociaux ? Rassurez-vous : <strong>87,4 % des super-héros Marvel ressentent exactement la même chose</strong>. Dans les pages de comics comme sur Instagram, vos amis ont presque systématiquement plus d'amis que vous. Mais pourquoi ce phénomène mathématique survient-il, et comment prouver que les équipes de super-héros (Avengers, X-Men) ne sont pas un simple artefact du hasard ? Plongée computationnelle au cœur de la composante géante du graphe Marvel.
+        </p>
+
+        <h2>1. Introduction : Quand la Topologie Bouscule l'Intuition</h2>
+        <p>
+          Dans le cadre de l'<strong>Exercice 2.11 ("Go nuts with your LLM")</strong> du cours DTU 02805 (<em>Social Graphs and Interactions</em>), nous poussons l'analyse du réseau Marvel au-delà des simples métriques descriptives. En nous focalisant sur la <strong>composante géante connexe (GCC)</strong> du réseau — regroupant <strong>277 super-héros</strong> et <strong>1 421 alliances non-orientées</strong> — nous allons disséquer deux énigmes fondamentales de la science des réseaux :
+        </p>
+        <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #cbd5e1;">
+          <li><strong>Le paradoxe de l'amitié :</strong> Pourquoi vos voisins sont-ils mathématiquement plus connectés que vous, qui sont les "coupables" qui tirent cette moyenne vers le haut, et qui parvient à y échapper ?</li>
+          <li><strong>Le test du modèle nul (Shuffle Test) :</strong> Le fort taux de regroupement (clustering) des héros est-il un simple sous-produit de l'existence de quelques stars ultra-connectées, ou le reflet indéniable d'une véritable structure en communautés ?</li>
+        </ol>
+
+        <h2>2. Le Paradoxe de l'Amitié chez les Super-Héros</h2>
+        <p>
+          Formulé pour la première fois par le sociologue Scott L. Feld en 1991, le paradoxe de l'amitié énonce que <em>« vos amis ont en moyenne plus d'amis que vous »</em>. Appliquons ce principe aux données réelles de Marvel.
+        </p>
+
+        <h3>A. Les chiffres bruts du réseau</h3>
+        <p>
+          Si l'on tire au sort un personnage de la composante géante avec une probabilité uniforme, son <strong>degré moyen</strong> est de :
+        </p>
+        <p style="text-align: center; font-family: var(--font-mono); font-size: 1.2rem; color: var(--primary-cyan); margin: 1.25rem 0;">
+          &lang;k&rang; = 10,26 connexions
+        </p>
+        <p>
+          En revanche, si l'on prend ce même personnage et que l'on choisit au hasard l'un de ses voisins (ou si l'on échantillonne une arête aléatoire), le degré moyen de ce voisin explose :
+        </p>
+        <p style="text-align: center; font-family: var(--font-mono); font-size: 1.2rem; color: var(--marvel-red); margin: 1.25rem 0;">
+          &lang;k<sub>voisin</sub>&rang; = 22,25 connexions &nbsp;&nbsp;|&nbsp;&nbsp; Moyenne des voisins &lang;k<sub>nn</sub>&rang; = 24,90
+        </p>
+        <p>
+          <strong>Résultat :</strong> Les partenaires d'un super-héros ont en moyenne <strong>plus de deux fois plus d'alliés (x2,17)</strong> que lui-même !
+        </p>
+
+        <div class="callout">
+          <div class="callout-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            Le Fondement Mathématique du Paradoxe
+          </div>
+          <p>
+            Ce phénomène n'est pas un biais psychologique, mais une propriété géométrique stricte. Dans tout réseau hétérogène, la probabilité d'atteindre un nœud en suivant une arête aléatoire est proportionnelle à son degré <em>k</em>. L'espérance du degré d'un voisin s'écrit :
+            <br><br>
+            <span style="font-family: var(--font-mono); color: var(--primary-cyan); display: block; text-align: center;">
+              &lang;k<sub>voisin</sub>&rang; = &lang;k&sup2;&rang; / &lang;k&rang; = &lang;k&rang; + &sigma;<sub>k</sub>&sup2; / &lang;k&rang;
+            </span>
+            <br>
+            Dès lors que la variance des degrés est non nulle (&sigma;<sub>k</sub>&sup2; = 123,04 dans notre réseau Marvel), &lang;k<sub>voisin</sub>&rang; est <strong>strictement supérieur</strong> à &lang;k&rang;. Plus le réseau contient des super-hubs, plus l'écart se creuse !
+          </p>
+        </div>
+
+        <h3>B. Qui sont les Hubs responsables du paradoxe ?</h3>
+        <p>
+          Les "coupables" sont les héros omniprésents qui apparaissent dans le carnet d'adresses d'une multitude d'autres personnages. En étant les voisins de presque tout le monde, ils tirent la moyenne de leurs pairs vers le haut.
+        </p>
+
+        <div class="data-table-wrapper">
+          <table class="network-table">
+            <thead>
+              <tr>
+                <th>Super-Héros (Hub)</th>
+                <th>Degré Réel (k)</th>
+                <th>Degré Moyen de ses Voisins (k_nn)</th>
+                <th>Excédent (k - k_nn)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="char-cell"><span class="rank-badge">01</span> Spider-Man</span></td>
+                <td><strong>106</strong></td>
+                <td>14,92</td>
+                <td style="color: #38bdf8; font-weight: 700;">+91,08</td>
+              </tr>
+              <tr>
+                <td><span class="char-cell"><span class="rank-badge">02</span> Hulk</span></td>
+                <td><strong>65</strong></td>
+                <td>15,28</td>
+                <td style="color: #38bdf8; font-weight: 700;">+49,72</td>
+              </tr>
+              <tr>
+                <td><span class="char-cell"><span class="rank-badge">03</span> Wolverine</span></td>
+                <td><strong>63</strong></td>
+                <td>17,84</td>
+                <td style="color: #38bdf8; font-weight: 700;">+45,16</td>
+              </tr>
+              <tr>
+                <td><span class="char-cell"><span class="rank-badge">04</span> Doctor Strange</span></td>
+                <td><strong>57</strong></td>
+                <td>18,98</td>
+                <td style="color: #38bdf8; font-weight: 700;">+38,02</td>
+              </tr>
+              <tr>
+                <td><span class="char-cell"><span class="rank-badge">05</span> Deadpool</span></td>
+                <td><strong>41</strong></td>
+                <td>19,71</td>
+                <td style="color: #38bdf8; font-weight: 700;">+21,29</td>
+              </tr>
+              <tr>
+                <td><span class="char-cell"><span class="rank-badge">06</span> She-Hulk</span></td>
+                <td><strong>37</strong></td>
+                <td>19,76</td>
+                <td style="color: #38bdf8; font-weight: 700;">+17,24</td>
+              </tr>
+              <tr>
+                <td><span class="char-cell"><span class="rank-badge">07</span> Black Panther</span></td>
+                <td><strong>31</strong></td>
+                <td>17,03</td>
+                <td style="color: #38bdf8; font-weight: 700;">+13,97</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>C. Qui échappe au paradoxe ?</h3>
+        <p>
+          Un personnage ne subit pas le paradoxe si son propre degré est supérieur ou égal au degré moyen de ses voisins (<em>k<sub>i</sub> &ge; k<sub>nn, i</sub></em>). Dans le réseau Marvel :
+        </p>
+        <ul>
+          <li><strong>Seulement 35 super-héros sur 277 (12,6 %)</strong> sont immunisés contre le paradoxe. Ils constituent l'aristocratie ultra-connectée de l'univers (Spider-Man, Wolverine, Hulk, Dr. Strange, etc.).</li>
+          <li><strong>242 super-héros (87,4 %)</strong> subissent le paradoxe de plein fouet : leurs alliés ont systématiquement plus de connexions qu'eux.</li>
+        </ul>
+
+        <!-- EMPLACEMENT GRAPHIQUE 1 -->
+        <div class="graph-preview-card" style="margin: 3rem 0;">
+          <div class="graph-card-header">
+            <div class="graph-card-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              FIGURE 1 &bull; Visualisation Empirique du Paradoxe de l'Amitié chez Marvel
+            </div>
+            <span class="graph-badge-live">&bull; Haute Résolution</span>
+          </div>
+          <div style="padding: 1.5rem; text-align: center; background: #07090e;">
+            <img src="friendship_paradox.png" alt="Graphique du Paradoxe de l'Amitié chez Marvel" style="border-radius: var(--radius-md); margin: 0 auto; box-shadow: var(--shadow-lg);">
+          </div>
+          <div class="graph-legend">
+            <span><strong>Interprétation de la Figure 1 :</strong> (A) Dispersion nœud par nœud. La zone rouge représente les 87,4 % de héros subissant le paradoxe au-dessus de la ligne neutre <em>y = x</em>. Les héros dans la zone bleue sous la ligne sont les hubs immunisés. (B) Comparaison des moyennes montrant l'amplification massive de &lang;k&rang; (10,26) à &lang;k<sub>voisin</sub>&rang; (22,25).</span>
+          </div>
+        </div>
+
+        <h2>3. Le Shuffle Test : Le Hasard Explique-t-il les Regroupements ?</h2>
+        <p>
+          Dans notre premier article, nous avons constaté que le réseau Marvel possède un <strong>coefficient de clustering moyen très élevé</strong> :
+        </p>
+        <p style="text-align: center; font-family: var(--font-mono); font-size: 1.15rem; color: var(--primary-cyan); margin: 1rem 0;">
+          &lang;C<sub>réel</sub>&rang; = 0,3199 &nbsp;&nbsp;(Transitivité T = 0,1823)
+        </p>
+        <p>
+          Mais une question critique de science des réseaux se pose : <em>cette propension à former des triangles d'alliés est-elle simplement une conséquence mécanique du fait que certains héros ont un degré énorme ?</em> En effet, deux héros reliés au hasard à Spider-Man ont naturellement une chance non nulle d'être aussi connectés entre eux.
+        </p>
+
+        <h3>A. Le protocole du Modèle Nul préservant les degrés</h3>
+        <p>
+          Pour tester rigoureusement cette hypothèse, nous utilisons l'algorithme de <strong>double permutation d'arêtes (<em>Double Edge Swap</em>)</strong> avec la fonction <code>nx.double_edge_swap</code> de NetworkX :
+        </p>
+        <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #cbd5e1;">
+          <li>On sélectionne deux arêtes aléatoires <em>(u, v)</em> et <em>(x, y)</em> sans lien croisé préexistant.</li>
+          <li>On les permute pour former <em>(u, y)</em> et <em>(x, v)</em>.</li>
+          <li>On répète l'opération <strong>14 210 fois par réseau</strong> (soit 10 fois le nombre total d'arêtes) pour détruire toute corrélation locale tout en <strong>préservant à 100 % le degré exact de chaque personnage</strong>.</li>
+          <li>On génère <strong>100 réplicats indépendants</strong> de ce modèle nul.</li>
+        </ol>
+
+        <h3>B. Résultats statistiques et Z-score</h3>
+        <p>
+          La distribution des coefficients de clustering mesurés sur ces 100 réseaux synthétiques donne un résultat spectaculaire :
+        </p>
+        <ul>
+          <li><strong>Moyenne du modèle nul :</strong> &lang;C<sub>nul</sub>&rang; = 0,1554 &plusmn; 0,0084 (extrêmes : [0,1399 ; 0,1816])</li>
+          <li><strong>Clustering réel :</strong> &lang;C<sub>réel</sub>&rang; = 0,3199</li>
+          <li><strong>Z-score du clustering :</strong> <span style="color: var(--marvel-red); font-weight: 800; font-family: var(--font-mono);">+19,57 &sigma;</span></li>
+          <li><strong>p-value empirique :</strong> <span style="font-family: var(--font-mono); color: var(--accent-emerald);">p = 0,0000 (p &lt; 10<sup>-3</sup>)</span></li>
+        </ul>
+
+        <!-- EMPLACEMENT GRAPHIQUE 2 -->
+        <div class="graph-preview-card" style="margin: 3rem 0;">
+          <div class="graph-card-header">
+            <div class="graph-card-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              FIGURE 2 &bull; Histogramme du Shuffle Test (100 Modèles Nuls vs Réseau Réel)
+            </div>
+            <span class="graph-badge-live">&bull; p &lt; 0.001</span>
+          </div>
+          <div style="padding: 1.5rem; text-align: center; background: #07090e;">
+            <img src="null_model_clustering_shuffle.png" alt="Distribution du Shuffle Test sur le Clustering" style="border-radius: var(--radius-md); margin: 0 auto; box-shadow: var(--shadow-lg);">
+          </div>
+          <div class="graph-legend">
+            <span><strong>Interprétation de la Figure 2 :</strong> La distribution en cloche bleue représente le clustering issu du hasard sous contrainte de degrés. La ligne rouge verticale (valeur réelle 0,3199) est située à <strong>19,57 écarts-types</strong> de la moyenne nulle. Aucun des 100 modèles nuls n'approche même de loin la valeur réelle.</span>
+          </div>
+        </div>
+
+        <div class="callout callout-marvel">
+          <div class="callout-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            Interprétation : Pourquoi le hasard ne suffit pas ?
+          </div>
+          <p>
+            Ce test prouve de manière irréfutable le <strong>rejet massif de l'hypothèse nulle</strong>. Certes, avoir des super-hubs fait passer le clustering de 0,04 (dans un graphe d'Erdős-Rényi sans hubs) à 0,15. <em>Mais cela n'explique que la moitié de la cohésion observée !</em>
+            <br><br>
+            Le fossé restant (+19,6 &sigma;) est l'empreinte mathématique directe de la <strong>fermeture triadique sociale et narrative</strong> : dans Marvel, les héros s'organisent en équipes soudées (Avengers, Fantastic Four, X-Men, Defenders). L'allié de mon allié est très souvent mon allié parce que nous partageons la même faction, la même base d'opérations ou le même arc éditorial.
+          </p>
+        </div>
+
+        <h2>4. Conclusion &amp; Ce que la Science des Réseaux nous Enseigne</h2>
+        <p>
+          Cette exploration computationnelle de l'Exercice 2.11 démontre la richesse inépuisable des graphes de comics :
+        </p>
+        <ul>
+          <li><strong>Le paradoxe de l'amitié n'épargne personne :</strong> Moins de 13 % des héros (les super-hubs majeurs comme Spider-Man ou Wolverine) sont plus populaires que leurs pairs. Les 87 % restants gravitent autour d'alliés beaucoup plus connectés qu'eux.</li>
+          <li><strong>La structure en communautés est réelle :</strong> Le clustering exceptionnel de l'univers Marvel n'est pas un artefact causé par la popularité de quelques icônes. C'est le résultat d'une modularité narrative dense forgée par 80 ans d'alliances collectives.</li>
+        </ul>
+        <p>
+          En combinant rigueur mathématique, modèles nuls et visualisations sur-mesure, la science des réseaux transforme un univers fictif en un laboratoire fascinant pour comprendre les architectures relationnelles du monde réel.
+        </p>
+
+        <!-- Signature et scripts de l'auteur -->
+        <div class="article-footer-box">
+          <div class="edit-notice">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            Article réalisé par Romeo Sofia &bull; DTU 02805 Social Graphs and Interactions
+          </div>
+          <p class="edit-hint">
+            Script d'analyse et visualisations générés via NetworkX, Seaborn et Matplotlib. Code source complet accessible dans le fichier <code>week2/exercise_2_11_analysis.py</code>.
+          </p>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- PIED DE PAGE (FOOTER) -->
+  <footer class="site-footer">
+    <div class="footer-bottom" style="border-top: none; padding-top: 0; justify-content: center; text-align: center;">
+      <p>&copy; 2026 NetSci Lab &bull; Romeo Sofia &bull; Science des Réseaux</p>
+    </div>
+  </footer>
+
+  <!-- Script interactif léger pour la barre de lecture -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const progressBar = document.getElementById('reading-progress');
+      if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+      }
+    });
+  </script>
+</body>
+</html>
