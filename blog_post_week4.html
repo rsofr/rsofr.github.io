@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Louvain vs. Infomap on the Philosophers // NetSci Lab</title>
+  <meta name="description" content="Louvain vs. Infomap on the Philosophers: How Mathematics Shapes the History of Thought - By Romeo Sofia">
+  
+  <!-- Google Fonts (Plus Jakarta Sans & JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- MathJax Configuration for LaTeX Rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand" aria-label="NetSci Lab Home">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="6" r="3"></circle>
+            <circle cx="18" cy="6" r="3"></circle>
+            <circle cx="18" cy="18" r="3"></circle>
+            <circle cx="6" cy="18" r="3"></circle>
+            <line x1="8.5" y1="7.5" x2="15.5" y2="16.5"></line>
+            <line x1="8.5" y1="16.5" x2="15.5" y2="7.5"></line>
+          </svg>
+        </div>
+        <div class="brand-meta">
+          <div class="brand-title">
+            <span>NetSci</span> Lab
+          </div>
+          <span class="univ-badge">Network Science</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="btn-nav">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Articles
+          </a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <main class="main-layout" id="article" style="margin-top: 2.5rem;">
+    <article class="article-container">
+      
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="article-category" style="background: rgba(168, 85, 247, 0.12); border-color: rgba(168, 85, 247, 0.3); color: #c084fc;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          Week 4 &bull; Community Detection &amp; Infomap
+        </div>
+
+        <h1 class="article-title">
+          Louvain vs. Infomap on the Philosophers: How Mathematics Shapes the History of Thought
+        </h1>
+
+        <div class="article-meta">
+          <div class="meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>September 23, 2026</span>
+          </div>
+          <div class="meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>9 min read</span>
+          </div>
+          <div class="meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span>By Romeo Sofia</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Article Body -->
+      <div class="article-body">
+        
+        <p class="article-lead">
+          What constitutes a <strong>school of thought</strong>? To an intellectual historian, a school is forged through living dialogue: shared dilemmas, fierce debates, mentor-disciple lineages, and specialized vocabularies. To a network scientist, however, a school is an algorithmic partition—a boundary drawn across thousands of cross-references, mutual citations, and documented influences. Yet mathematics is not neutral: how we define a "community" formally dictates how we reconstruct the history of human knowledge.
+        </p>
+
+        <h2>1. Introduction: When Algorithms Write Intellectual History</h2>
+        <p>
+          Consider two foundational, competing paradigms in network community detection:
+        </p>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #cbd5e1;">
+          <li><strong>The Static Structural Cut (Louvain / Modularity Maximization):</strong> Communities are dense topological compartments—clusters of thinkers whose mutual edge density significantly exceeds what would be expected by chance under a degree-preserving null model.</li>
+          <li><strong>The Dynamic Information Flow (Infomap / The Map Equation):</strong> Communities are natural trapping basins for intellectual diffusion—domains where a cognitive random walker, representing the flow of ideas, arguments, and citations, persists for an extended duration before escaping to another tradition.</li>
+        </ul>
+        <p>
+          In this study, we pit the <strong>Louvain algorithm</strong> against <strong>Infomap</strong> on the Giant Connected Component (GCC) of historical philosophers (<strong>1,374 thinkers</strong> and <strong>9,139 weighted edges</strong>, total edge weight $W = 15,757.0$). While both algorithms exhibit solid macro-level agreement on civilizational boundaries (Normalized Mutual Information $\mathbf{\text{NMI} \approx 0.69}$), they vehemently clash over <strong>41.3% of the network</strong>.
+        </p>
+
+        <h2>2. Mathematical Foundations: Density vs. Diffusion</h2>
+        
+        <h3>A. Louvain: Newman-Girvan Modularity Maximization</h3>
+        <p>
+          The Louvain algorithm optimizes Newman-Girvan modularity $Q$, quantifying the fraction of edges falling within communities minus the expected fraction in an equivalent configuration model:
+        </p>
+        <div style="background: rgba(15, 20, 31, 0.9); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; text-align: center;">
+          $$Q = \frac{1}{2m} \sum_{i,j} \left( A_{ij} - \frac{k_i k_j}{2m} \right) \delta(c_i, c_j)$$
+        </div>
+        <p>
+          Where $A_{ij}$ is the edge weight between philosophers $i$ and $j$, $k_i$ is their weighted degree (strength), $2m = \sum_i k_i$ is twice the total edge weight, and $\delta(c_i, c_j) = 1$ if both share community $c$, and $0$ otherwise.
+        </p>
+
+        <h3>B. Infomap: The Map Equation and Shannon Coding</h3>
+        <p>
+          Infomap reformulates community detection as an optimal lossy data compression problem. Guided by the principle that <em>"to understand a system, trace the flow within it,"</em> Rosvall and Bergstrom (2008) introduced the <strong>Map Equation</strong>:
+        </p>
+        <div style="background: rgba(15, 20, 31, 0.9); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem; margin: 1.5rem 0; text-align: center;">
+          $$L(\mathsf{M}) = q_{\curvearrowright} H(\mathcal{Q}) + \sum_{i=1}^m p_{\circlearrowright}^i H(\mathcal{P}^i)$$
+        </div>
+
+        <div class="callout">
+          <div class="callout-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            Understanding the Dual Codebook Mechanics
+          </div>
+          <p>
+            Infomap designs a two-level description code for an infinite random walk:
+            <br>&bull; <strong>Index Codebook:</strong> Assigns codewords to transitions between modules, with exit rate $q_{\curvearrowright}$ and entropy $H(\mathcal{Q})$.
+            <br>&bull; <strong>Module Codebooks:</strong> Reuses short, local codewords to describe movements between individual thinkers within module $i$, with intra-module rate $p_{\circlearrowright}^i$ and entropy $H(\mathcal{P}^i)$.
+            <br>Minimizing $L(\mathsf{M})$ finds the partition that maximizes compression: a walker spends most of its time trapped inside modules, triggering index switches as rarely as possible.
+          </p>
+        </div>
+
+        <h2>3. Empirical Findings on the Philosophers Network</h2>
+        <p>
+          Running both algorithms on the empirical giant component reveals sharp differences in granularity:
+        </p>
+
+        <div class="data-table-wrapper">
+          <table class="network-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Louvain Algorithm</th>
+                <th>Infomap (Map Equation)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Objective Function</strong></td>
+                <td>Modularity $Q$</td>
+                <td>Map Equation $L(\mathsf{M})$</td>
+              </tr>
+              <tr>
+                <td><strong>Optimized Score</strong></td>
+                <td><span style="color: var(--primary-cyan); font-weight: 700;">Q = 0.5645</span></td>
+                <td><span style="color: var(--primary-cyan); font-weight: 700;">L(M) = 8.3876 bits</span></td>
+              </tr>
+              <tr>
+                <td><strong>Number of Communities</strong></td>
+                <td><strong>10 macro-clusters</strong></td>
+                <td><strong>19–28 fine modules</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Largest Community Size</strong></td>
+                <td>242 nodes (17.6%)</td>
+                <td>153 nodes (11.1%)</td>
+              </tr>
+              <tr>
+                <td><strong>Normalized Mutual Information</strong></td>
+                <td colspan="2" style="text-align: center; font-weight: 700; color: #a855f7;">NMI = 0.6888</td>
+              </tr>
+              <tr>
+                <td><strong>Node Concordance</strong></td>
+                <td colspan="2" style="text-align: center;"><strong>58.66% Agreement</strong> (806 nodes) &nbsp;|&nbsp; <strong style="color: #ff7b72;">41.34% Disagreement</strong> (568 nodes)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. Dissecting the Disagreement: The Map of Discord</h2>
+        <p>
+          Where does the 41.3% disagreement stem from? To compare partitions without arbitrary cluster indexing, we performed optimal bipartite matching using the <strong>Kuhn-Munkres (Hungarian) algorithm</strong> on the cross-contingency matrix.
+        </p>
+
+        <!-- Visualization Image Embed -->
+        <figure class="article-figure" style="margin: 2rem 0;">
+          <img src="assets/louvain_vs_infomap_disagreement.png" alt="Network of Disagreement: Louvain vs. Infomap" style="border-radius: 14px; border: 1px solid var(--border-subtle); width: 100%; box-shadow: var(--shadow-lg);">
+          <figcaption style="text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-top: 0.75rem;">
+            <strong>Figure 1:</strong> (Left) Force-directed subnetwork layout of top thinkers. Blue nodes denote method concordance; vibrant coral nodes denote methodological discordance, with key disputed giants highlighted. (Top Right) The modularity resolution limit: how Louvain's monolithic clusters shatter into distinct Infomap flow modules. (Bottom Right) Method disagreement rate across historical eras, showing peak friction in the 18th and 19th centuries.
+          </figcaption>
+        </figure>
+
+        <h3>A. The Modularity Resolution Limit in Action</h3>
+        <p>
+          In 2007, Santo Fortunato and Marc Barthélemy proved that modularity optimization suffers from an intrinsic <strong>resolution limit</strong>: it is mathematically incapable of resolving well-defined communities whose total edge strength is below a characteristic scale proportional to the square root of the network's total volume:
+        </p>
+        <p style="text-align: center; font-family: var(--font-mono); color: var(--primary-cyan); margin: 1rem 0;">
+          Scale &approx; &radic;(2m) = &radic;(2 &times; 15,757) &approx; 177.5 edge weights
+        </p>
+        <p>
+          Because our philosophers network possesses over 15,000 edge weights, Louvain cannot distinguish distinct intellectual traditions if their total volume is below ~175. Consequently, Louvain merges the <strong>Continental Rationalists</strong> (Descartes, Leibniz, Spinoza) and the <strong>British Empiricists</strong> (Locke, Hume, Berkeley) into a single monolithic 242-node blob! Infomap, operating on localized random-walk compression, effortlessly shatters this artifact into authentic, self-contained subfields.
+        </p>
+
+        <h3>B. Key Thinkers of Disagreement (The Nodes of Discord)</h3>
+        <p>
+          The table below highlights the most influential thinkers where the two mathematical formalisms reach opposing conclusions:
+        </p>
+
+        <div class="data-table-wrapper">
+          <table class="network-table">
+            <thead>
+              <tr>
+                <th>Philosopher</th>
+                <th>Degree</th>
+                <th>Historical Era</th>
+                <th>Louvain Cluster</th>
+                <th>Infomap Flow Module</th>
+                <th>Historiographical Reality</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Aristotle</strong></td>
+                <td>521.0</td>
+                <td>Antiquity (BC)</td>
+                <td>Classical Greek</td>
+                <td>Peripatetic / Commentaries</td>
+                <td>Gateway between Athens, Islamic Golden Age, and Paris Scholasticism.</td>
+              </tr>
+              <tr>
+                <td><strong>David Hume</strong></td>
+                <td>168.0</td>
+                <td>18th Century</td>
+                <td>Modern Rationalism</td>
+                <td>British Empiricism</td>
+                <td>Scottish Enlightenment empiricist, epistemologically opposed to Descartes.</td>
+              </tr>
+              <tr>
+                <td><strong>Edmund Husserl</strong></td>
+                <td>158.0</td>
+                <td>19th Century</td>
+                <td>German Idealism</td>
+                <td>Phenomenology &amp; Existentialism</td>
+                <td>Founder of phenomenology; distinct from Hegelian metaphysics.</td>
+              </tr>
+              <tr>
+                <td><strong>Augustine of Hippo</strong></td>
+                <td>158.0</td>
+                <td>1st–10th c.</td>
+                <td>Christian Scholasticism</td>
+                <td>Patristic / Neoplatonism</td>
+                <td>Bridge between late Roman pagan antiquity and Latin Christianity.</td>
+              </tr>
+              <tr>
+                <td><strong>Martin Heidegger</strong></td>
+                <td>152.0</td>
+                <td>19th/20th c.</td>
+                <td>German Idealism</td>
+                <td>20th c. Existentialism</td>
+                <td>Fundamental ontology, distinct from 19th c. German Idealist systems.</td>
+              </tr>
+              <tr>
+                <td><strong>Jean-Jacques Rousseau</strong></td>
+                <td>145.0</td>
+                <td>18th Century</td>
+                <td>Modern Rationalism</td>
+                <td>Political Contract Theory</td>
+                <td>Pre-Romantic political iconoclast, antithetical to Cartesian mechanism.</td>
+              </tr>
+              <tr>
+                <td><strong>Henri Bergson</strong></td>
+                <td>114.0</td>
+                <td>19th Century</td>
+                <td>Analytic / Pragmatism</td>
+                <td>Continental Vitalism</td>
+                <td>Process philosopher forced by Louvain into Russell's logical orbit.</td>
+              </tr>
+              <tr>
+                <td><strong>Albert Einstein</strong></td>
+                <td>101.0</td>
+                <td>19th/20th c.</td>
+                <td>Analytic / Pragmatism</td>
+                <td>Philosophy of Science &amp; Physics</td>
+                <td>Relativity pioneer connected to Mach and Poincaré, not formal logic.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>5. Analytical Discussion: Which Method Tells the Better History?</h2>
+        <p>
+          When evaluating whether Louvain or Infomap provides a more faithful model of intellectual history, network science concepts provide an unequivocal answer: <strong>Infomap tells a far superior history of philosophy.</strong>
+        </p>
+
+        <h3>1. Philosophy is Directed Diffusion, Not Static Density</h3>
+        <p>
+          Intellectual history is fundamentally a dynamic process of citation, reaction, and transmission. An inquirer reads Kant, struggles with Hume, and formulates dialectics that inspire Hegel. Modularity treats edges as symmetric spring tensions. To Louvain, because 19th-century German Idealists heavily cite Spinoza, Spinoza is pulled out of the 17th century and lumped into 19th-century Germany! In contrast, Infomap asks where an intellectual random walker lingers before escaping. The terminology of British Empiricism (sense data, impressions, tabula rasa) traps readers within its own vocabulary before transitioning to the continent.
+        </p>
+
+        <h3>2. The Resolution Limit Distorts Intellectual Revolutions</h3>
+        <p>
+          Modularity’s global denominator $2m$ imposes an arbitrary historical horizon. Modularity acts like a low-resolution telescope: it recognizes that Europe differs from China and Antiquity from the Middle Ages, but it cannot resolve the internal schisms that drive philosophical revolutions. Claiming Descartes and Hume share a community is an intellectual distortion born purely from a mathematical scaling penalty.
+        </p>
+
+        <h3>3. Transitional Eras Exhibit Peak Algorithmic Friction</h3>
+        <p>
+          As proven in our empirical era breakdown, disagreement peaks in the <strong>18th century (62.1%)</strong> and <strong>19th century (56.4%)</strong>. These were epochs of scientific and political upheaval, where polymaths like Adam Smith and Galileo Galilei straddled the boundaries between decaying scholastic doctrines and emergent empirical sciences. Modularity flattens these complex bridge figures into whichever mega-block holds a marginal edge surplus, while Infomap preserves their function as cross-tradition gateways.
+        </p>
+
+        <h2>6. Conclusion &amp; Key Takeaways</h2>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; color: #cbd5e1;">
+          <li><strong>Louvain maps broad civilizational continents:</strong> It is well-suited for high-level macro-segmentation (Antiquity, Islamic Golden Age, Medieval Christendom, Eastern Thought), but is blinded by its resolution limit to specialized intellectual schools.</li>
+          <li><strong>Infomap maps the living flow of ideas:</strong> By optimizing the description length of random walks via the Map Equation, Infomap faithfully reconstructs the nuanced topography of philosophy—separating Empiricism from Rationalism, isolating Phenomenology from Hegelianism, and honoring the integrity of boundary thinkers.</li>
+        </ul>
+
+        <!-- Author Footer Box -->
+        <div class="article-footer-box">
+          <div class="edit-notice">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            Research post by Romeo Sofia &bull; DTU 02805 Social Graphs &amp; Interactions
+          </div>
+          <p class="edit-hint">
+            Analysis and visualizations generated using NetworkX, Infomap, and Matplotlib. Complete scripts available in <code>week4/louvain_vs_infomap_analysis.py</code> and <code>week4/louvain_vs_infomap_visualization.py</code>.
+          </p>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-bottom" style="border-top: none; padding-top: 0; justify-content: center; text-align: center;">
+      <p>&copy; 2026 NetSci Lab &bull; Romeo Sofia &bull; Network Science</p>
+    </div>
+  </footer>
+
+  <!-- Reading Progress Bar Script -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const progressBar = document.getElementById('reading-progress');
+      if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+      }
+    });
+  </script>
+</body>
+</html>
